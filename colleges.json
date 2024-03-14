@@ -1,0 +1,22 @@
+{
+    "colleges": [
+      {
+        "name": "College A",
+        "location": "City X",
+        "courses": ["Computer Science", "Electrical Engineering"],
+        "faculty": ["Prof. John Doe", "Dr. Jane Smith"],
+        "scholarships": ["Merit Scholarship", "Financial Aid"],
+        "approvals": ["AICTE Approved", "UGC Accredited"]
+      },
+      {
+        "name": "College B",
+        "location": "City Y",
+        "courses": ["Business Administration", "Mechanical Engineering"],
+        "faculty": ["Prof. Alice Brown", "Dr. Robert Lee"],
+        "scholarships": ["Sports Scholarship", "STEM Scholarship"],
+        "approvals": ["AICTE Approved", "NAAC Accredited"]
+      }
+    
+    ]
+  }
+  

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>AICTE Search Engine</title>
+</head>
+
+<body>
+    <header>
+        <img src="download.jpg" alt="AICTE Logo">
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Search</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="search-container">
+            <h1>AICTE Search Engine</h1>
+            <form id="search-form">
+                <input type="text" id="search-input" placeholder="Search for colleges, courses, faculty...">
+                <select id="search-category">
+                    <option value="colleges">Colleges</option>
+                    <option value="courses">Courses</option>
+                    <option value="faculty">Faculty</option>
+                    <option value="scholarships">Scholarships</option>
+                    <option value="approvals">Approvals</option>
+                </select>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <div id="college-list"></div>
+    </main>
+    <footer>
+        <p>&copy; 2023 AICTE Search Engine</p>
+    </footer>
+    <script>
+        // Fetch the JSON data
+        fetch('colleges.json')
+            .then(response => response.json())
+            .then(data => {
+                // Access the "colleges" array from the JSON data
+                const colleges = data.colleges;
+
+                // Get references to HTML elements
+                const searchForm = document.getElementById('search-form');
+                const searchInput = document.getElementById('search-input');
+                const searchCategory = document.getElementById('search-category');
+                const collegeListContainer = document.getElementById('college-list');
+
+                // Define a function to filter and display colleges
+                // Define a function to filter and display colleges
+                function displayColleges() {
+                    const searchTerm = searchInput.value.trim().toLowerCase();
+                    const selectedCategory = searchCategory.value;
+
+                    // Filter the colleges based on the search term and category
+                    const filteredColleges = colleges.filter(college => {
+                        return college[selectedCategory].join(' ').toLowerCase().includes(searchTerm);
+                    });
+
+                    // Clear the current results
+                    collegeListContainer.innerHTML = '';
+
+                    // Display the filtered colleges
+                    filteredColleges.forEach(college => {
+                        const collegeDiv = document.createElement('div');
+                        collegeDiv.innerHTML = `
+            <h2>${college.name}</h2>
+            <p><strong>Location:</strong> ${college.location}</p>
+            <p><strong>Courses:</strong> ${college.courses.join(', ')}</p>
+            <p><strong>Faculty:</strong> ${college.faculty.join(', ')}</p>
+            <p><strong>Scholarships:</strong> ${college.scholarships.join(', ')}</p>
+            <p><strong>Approvals:</strong> ${college.approvals.join(', ')}</p>
+        `;
+                        collegeListContainer.appendChild(collegeDiv);
+                    });
+                }
+
+
+                // Add an event listener for the form submission
+                searchForm.addEventListener('submit', function (event) {
+                    event.preventDefault(); // Prevent the default form submission
+                    displayColleges(); // Call the function to display colleges
+                });
+
+                // Initially display all colleges when the page loads
+                displayColleges();
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    </script>
+</body>
+
+</html>

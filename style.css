@@ -1,0 +1,112 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styling for the body */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('pngtree-teacher-s-college-classroom-coaching-course-poster-background-image_188494.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Fixed background image */
+    background-color: #111; /* Dark background color */
+    color: #fff; /* Light text color */
+}
+
+/* Style the header and navigation */
+header {
+    background-color: #222; /* Dark background for the header */
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav li {
+    margin: 0 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ff6600; /* Hover color */
+}
+
+/* Style the main content */
+main {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.search-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent light background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Slightly increased box shadow */
+}
+
+h1 {
+    color: #333; /* Dark text color for headings */
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+form {
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px;
+}
+
+select, button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333; /* Dark button background color */
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button {
+    margin-left: 10px;
+}
+
+/* Style the footer */
+footer {
+    background-color: #222; /* Dark footer background */
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    animation: fadeIn 2s; /* CSS animation */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
